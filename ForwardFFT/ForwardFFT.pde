@@ -83,10 +83,10 @@ void draw()
   if(fft.getFreq(329.6)>=9) sendNoteToAWS("e");
   if(fft.getFreq(392.3)>=9) sendNoteToAWS("g");
   if(fft.getFreq(440.0)>=9) sendNoteToAWS("a");
-  if(fft.getFreq(491.0)>=9) sendNoteToAWS("b");
+  /*if(fft.getFreq(491.0)>=9) sendNoteToAWS("b");
   if(fft.getFreq(521.0)>=9) sendNoteToAWS("c");
   if(fft.getFreq(587.0)>=9) sendNoteToAWS("d");
-  if(fft.getFreq(662.0)>=9) sendNoteToAWS("e0");
+  if(fft.getFreq(662.0)>=9) sendNoteToAWS("e0");*/
   // keep us informed about the window being used
   text("The window being used is: " + windowName, 5, 20);
 }
