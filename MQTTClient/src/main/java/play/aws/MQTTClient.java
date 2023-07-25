@@ -10,21 +10,19 @@ public class MQTTClient {
     public static final String AWS_IOT_CLIENT_ID = "iot-gateway";
     public static final String AWS_IOT_CERTIFICATE_FILE = "/Users/vsenger/Documents/minecraft-iot/8f2b2f776911332a0fea819064421830e592b55f32c4a6262918700841fc5c32-certificate.pem.crt";
     public static final String AWS_IOT_PRIVATE_KEY_FILE = "/Users/vsenger/Documents/minecraft-iot/8f2b2f776911332a0fea819064421830e592b55f32c4a6262918700841fc5c32-private.pem.key";
-
     private static final String AWS_IOT_INBOUND_TOPIC = "playground/sensors";
     private static final AWSIotQos AWS_IOT_INBOUND_TOPIC_QOS = AWSIotQos.QOS0;
 
     private static AWSIotMqttClient client = null;
-
     public static void main(String[] args) {
-        init();
+        init(AWS_IOT_ENDPOINT, AWS_IOT_CLIENT_ID, AWS_IOT_CERTIFICATE_FILE, AWS_IOT_PRIVATE_KEY_FILE);
         publish("control/lamp","0");
     }
-    public static void init() {
-        String clientEndpoint = AWS_IOT_ENDPOINT;
+    public static void init(String clientEndpoint, String clientId, String certificateFile, String privateKeyFile) {
+        /*String clientEndpoint = AWS_IOT_ENDPOINT;
         String clientId = AWS_IOT_CLIENT_ID;
         String certificateFile = AWS_IOT_CERTIFICATE_FILE;
-        String privateKeyFile = AWS_IOT_PRIVATE_KEY_FILE;
+        String privateKeyFile = AWS_IOT_PRIVATE_KEY_FILE;*/
 
         SampleUtil.KeyStorePasswordPair pair = SampleUtil.getKeyStorePasswordPair(certificateFile, privateKeyFile);
         client = new AWSIotMqttClient(clientEndpoint, clientId, pair.keyStore, pair.keyPassword);
